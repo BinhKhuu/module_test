@@ -1,0 +1,42 @@
+{
+  "name": "test3",
+  "files": [
+    "lib/**/"
+  ],
+  "version": "1.0.0",
+  "description": "A nice greeter",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  
+  "scripts": {
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BinhKhuu/module_test.git"
+  },
+  "keywords": ["Hello", "Greeter"],
+  "author": "Binh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BinhKhuu/module_test/issues"
+  },
+  "homepage": "https://github.com/BinhKhuu/module_test#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.0",
+    "ts-jest": "^27.0.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.3.2"
+  }
+}
